@@ -1,0 +1,12 @@
+body {
+    background-color: burlywood;
+    color: whitesmoke;
+    margin: auto;
+    border: auto;
+};
+
+img {
+    box-sizing: border-box;
+    height: 500px;
+    width: 60%;
+};
