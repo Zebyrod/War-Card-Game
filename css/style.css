@@ -1,30 +1,117 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
 body {
-    display: grid;
-    background-color: lightslategray;
+    display: flex;
+    background-color: black;
     color: whitesmoke;
-    grid-template-rows: auto 2fr auto;
-    grid-template-columns: 3fr 3fr;
+    flex-direction: column;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     margin: 0;
-    border: 0;
     min-height: 100vh;
 };
 
 
 #banner {
     min-height: 300px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-aside {
+section {
     background-color: black;
    
 }
 
 main {
-    background-color: brown;
+    display: grid;
+    margin: 0;
+    background-color: rgba(180, 117, 39, 0.514);
     grid-column: span 2;
     max-height: 500px;
-   
+}
+
+button {
+    cursor: pointer;
+}
+
+
+#game-table {
+    display: grid;
+    margin: 0;
+    grid-template-columns: repeat(2, 4rem);
+    grid-template-rows: 6rem 2rem 6rem;
+    gap: .5rem;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+
+.deck {
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    color: white;
+    user-select: none;
+}
+
+.player-deck{
+    background-color: blue;
+}
+
+.comp-deck{
+    background-color: red;
+}
+
+.display-text{
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-spot {
+    position: relative;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.card.red {
+    color: red;
+}
+
+.card.black {
+    color: black;
+}
+
+.card::after, .card::before{
+    position: absolute;
+    content: attr(data-value);  /*This will place the value of the cards within the divs and place them in the format of a card using the before and after styling  Looked this up on google and my AI search tool generated css using data-value */
+    font-size: 1rem;
+}
+
+.card::after{
+    bottom: .5rem;
+    right: .5rem;
+    transform: rotate(180deg);
+}
+
+.card::before{
+    top: .5rem;
+    left: .5rem;
 }
