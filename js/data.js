@@ -32,21 +32,18 @@ class Card {
 	constructor(suit, value) {
 		this.suit = suit;
 		this.value = value;
-	}
-    cardColor(){
         if(this.suit === '♣' || this.suit === '♠'){
             this.color = 'black'
         } else {
             this.color = 'red'
         }
-        return this.color
-    }
+	}
     cardValue(){
         const cardSlot = document.createElement('div')
         cardSlot.innerText = this.suit
         cardSlot.classList.add('card', this.color)
         cardSlot.dataset.value = `${this.suit} ${this.value}` // Searched ways to store data on created elements and found .dataset on w3 schools. Also watched a youtube video on 9 DOM manipulation methods to be a master and this one was in the video. this will assign a data-value to the html of the card being pulled which will then fill in the color and the value of the card being drawn. I will then use this in app.js to append it to the empty card space created. 
-        console.log(cardSlot.dataset.value);
+        // console.log(cardSlot.dataset.value);
         return cardSlot
     }
 };
@@ -66,6 +63,6 @@ function newDeck() {
 
 function shuffleCards(deck){
     return deck.sort(() => Math.floor(Math.random() -0.5)) 
-}
+};
 
 // Then I want the deck of 52 cards to be split in half and each half will be assigned to a player can use splice on the deck? Then push it into each players hand?

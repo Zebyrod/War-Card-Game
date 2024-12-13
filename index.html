@@ -8,15 +8,28 @@
 		<link rel="stylesheet" href="./css/style.css" />
 		<title>War Card Game</title>
 	</head>
-	<body>
+	<!-- <body background="https://img.freepik.com/free-photo/apocalyptic-destruction-war-zone-landscape_23-2150985683.jpg?semt=ais_hybrid"> -->
 		<div id="banner">
 			<h1>War! The Card Game</h1>
 			<p>Created by Zebastian Rodriguez</p>
-			<img
+			<img 
+            data-something="picture"
 				src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Thomas_C._Lea_III_-_That_Two-Thousand_Yard_Stare_-_Original.jpg/220px-Thomas_C._Lea_III_-_That_Two-Thousand_Yard_Stare_-_Original.jpg"
 				alt=" The Two Thousand Yard Stare"
 			/>
 		</div>
+        <main>
+            <div id="game-table">
+                <div class="comp-deck deck"></div>
+                <div class="comp-card card-spot"></div>
+                <div class="display-text"></div>
+                <div class="player-deck deck"></div>
+                <div class="player-card card-spot"></div>
+            </div>
+            <button id="play"><strong>Play</strong></button>
+            <button id="draw-card"><strong>Draw Card</strong></button>
+            <button id="reset"><strong>Reset Game</strong></button>
+        </main>
 		<section id="side-info">
 			<ul>
 				<strong>Rules of War:</strong>
@@ -38,21 +51,9 @@
 
 			<ul>
 				<strong>Instructions:</strong>
-				<li>Click Play to begin</li>
-				<li>When it is your turn, click draw card</li>
+				<li>Click draw card to flip cards</li>
 				<li>When It is time for War select a card you want to face-up</li>
 			</ul>
 		</section>
-		<main>
-			<div id="game-table">
-				<div class="comp-deck deck">26</div>
-				<div class="comp-card card-spot"></div>
-                <div class="display-text">Win/Lose</div>
-				<div class="player-deck deck">26</div>
-				<div class="player-card card-spot"></div>
-			</div>
-			<button>Play</button>
-			<button>Draw Card</button>
-		</main>
 	</body>
 </html>
