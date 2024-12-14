@@ -3,7 +3,7 @@
 }
 body {
     display: flex;
-    background-color: grey;
+    background-color: black;
     color: whitesmoke;
     flex-direction: column;
     font-family: 'Times New Roman', Times, serif;
