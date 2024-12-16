@@ -38,7 +38,8 @@ Button 2: Draw Card Button
 ## <a name="nextsteps"></a>Project Next Steps
 #### List of Future Features
 * Allow the user to chose player one or player two.
-* Add a declare war event when players draw cards of the same value
+* Add basic animation of cards being drawn
+* Add a declare war animation when players draw cards of the same value
 * During War event display all extra drawn cards
 * Restructure the layout of page to be more presentable
 * Allow users to change the theme of the cards and background.
@@ -50,7 +51,7 @@ Button 2: Draw Card Button
 * If unable to view please go live locally through VS Code
 
 ## <a name="Zebastian Rodriguez"></a>About The Author
-This is my first project built from scratch and using Javascript! I love to build apps and webpages using my hobbies and interests as inspiration for my creations! I hope to use the experience gained from building this card game to jump into other, more challenging projects in the future! By challenging myself with this game I feel much more confident in my abilities as a developer, and I hope to improve my design and coding skills with other projects.
+I am an aspiring software engineer. What started out as a curiosity quickly grew into a passion for coding and programming! This is my first project built from scratch and using Javascript! I loved building basic webpages using my hobbies and interests as inspiration. I hope to use the experience gained from building this card game to jump into other, more challenging projects in the future! By challenging myself with this game I feel much more confident in my abilities as a developer, and I hope to improve my design and coding skills with other projects.
     
 ## Works Cited:
 * Data Attributes :    

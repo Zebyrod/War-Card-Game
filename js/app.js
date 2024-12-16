@@ -38,6 +38,10 @@ let inRound;
 let playerCurrentCard;
 let computerCurrentCard;
 
+
+let playerSum;
+let computerSum;
+
 //----- Functions ------//
 
 function startGame() {
@@ -45,6 +49,7 @@ function startGame() {
 	playerDeck = deck.cards.slice(0, deckHalf);
 	compDeck = deck.cards.slice(deckHalf, deck.cards.length);
 	inRound = false;
+    playButton.innerText = 'Play'
 	cardCount();
 }
 
@@ -57,12 +62,16 @@ function flipCards() {
 	computerCard.appendChild(computerCurrentCard.cardValue());
 
 	if (roundWinner(playerCurrentCard, computerCurrentCard)) {
-		displayText.innerText = "Won Round!";
+        displayText.innerText = "Won Round!";
 		playerDeck.push(playerCurrentCard, computerCurrentCard);
 	} else {
-		displayText.innerText = "Lost Round!";
+        displayText.innerText = "Lost Round!";
 		compDeck.push(playerCurrentCard, computerCurrentCard);
 	}
+    
+    if (playerCurrentCard.value === computerCurrentCard.value){
+        declareWar()
+    };
 
 	if (gameOver(playerDeck)) {
 		displayText.innerText = "You Lost!";
@@ -77,7 +86,7 @@ function clearAfterRound() {
 	computerCard.innerHTML = "";
 	playerCard.innerHTML = "";
 	displayText.innerText = "";
-
+    
 	cardCount();
 }
 
@@ -95,6 +104,35 @@ function roundWinner(playerCurrentCard, computerCurrentCard) {
 function gameOver(deck) {
 	return deck.length === 0;
 }
+function declareWar(){
+
+    const playerWarCards = [
+        playerDeck.shift(),
+        playerDeck.shift(),
+        playerDeck.shift()
+    ];
+
+    const computerWarCards = [
+        compDeck.shift(),
+        compDeck.shift(),
+        compDeck.shift()
+    ];
+
+    playerSum = playerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
+
+    computerSum = computerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
+    if (playerSum > computerSum){
+        displayText.innerText = 'Won War!'
+        playerDeck.push(...computerWarCards, ...playerWarCards)
+    } else {
+        displayText.innerText = 'Lost War!'
+        compDeck.push(...computerWarCards, ...playerWarCards)
+    } 
+    computerWarCards.length = 0;
+    playerWarCards.length = 0;
+};
+       
+        
 //------ Event Listeners --------//
 
 playButton.addEventListener("click", () => {
@@ -111,39 +149,5 @@ drawButton.addEventListener("click", () => {
 
 // ---------GraveYard Code-------//
 
-// let playerSum;
-// let computerSum;
 
-// if (playerCurrentCard.value === computerCurrentCard.value){
-//     declareWar()
-// };
 
-// function declareWar(){
-
-//     const playerWarCards = [
-//         playerDeck.shift(),
-//         playerDeck.shift(),
-//         playerDeck.shift()
-//     ];
-
-//     const computerWarCards = [
-//         compDeck.shift(),
-//         compDeck.shift(),
-//         compDeck.shift()
-//     ];
-
-//     playerSum = playerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
-
-//     computerSum = computerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
-//     if (playerSum > computerSum){
-//         displayText.innerText = 'War Won!'
-//         for (cards of playerWarCards && computerWarCards){
-//             playerDeck.push(cards)
-//         }
-//     } else {
-//         displayText.innerText = 'War Lost!'
-//         for (cards of playerWarCards && computerWarCards){
-//             compDeck.push(cards)
-//         }
-//     };
-// };
