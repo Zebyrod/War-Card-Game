@@ -14,7 +14,7 @@ const cardValue = {  // I had to add a value for each card for when a special ca
 	'9': 9,
 	'10': 10,
 	J: 11,
-	Q: 112,
+	Q: 12,
 	K: 13,
 	A: 14,
 };
@@ -39,10 +39,11 @@ let inRound;
 let playerCurrentCard;
 let computerCurrentCard;
 
+
 //----- Functions ------//
 
 function startGame() {
-	const deckHalf = Math.floor(deck.cards.length / 2);
+    const deckHalf = Math.floor(deck.cards.length / 2);
 	playerDeck = deck.cards.slice(0, deckHalf);
 	compDeck = deck.cards.slice(deckHalf, deck.cards.length);
 	inRound = false;
@@ -50,48 +51,52 @@ function startGame() {
 }
 
 function flipCards() {
-	// I want this function to take the first card of the deck and append it to the empty card slot created.
-
+    // I want this function to take the first card of the deck and append it to the empty card slot created.
+    
 	inRound = true;
 	playerCurrentCard = playerDeck.shift();
 	computerCurrentCard = compDeck.shift();
-
+    
 	playerCard.appendChild(playerCurrentCard.cardValue());
 	computerCard.appendChild(computerCurrentCard.cardValue());
-
+    
     if(roundWinner(playerCurrentCard, computerCurrentCard)){  // I want this to compare the card value and return if the round was won or lost by the player. 
-        displayText.innerText = 'Win!'
-        playerDeck.push(playerCurrentCard, computerCurrentCard); // After a winner for the round is determined The winner of the round should have both of the cards pushed to the bottom of their deck
+        displayText.innerText = 'Won Round!'
+        playerDeck.push(playerCurrentCard, computerCurrentCard);
+         // After a winner for the round is determined The winner of the round should have both of the cards pushed to the bottom of their deck
     } else {
-        displayText.innerText = 'Lose!'
+        displayText.innerText = 'Lost Round!'
         compDeck.push(playerCurrentCard, computerCurrentCard);
     };
-
+    
+    
     if (gameOver(playerDeck)){  // This function will return a you lost or win message once a player runs out of cards
         displayText.innerText = 'You Lost!'
     } else if(gameOver(compDeck)){
-        displayText.innerText = "Congrats! You Win!"
-    }
+        displayText.innerText = "You Win!"
+    }  playButton.innerText = 'Restart'
 };
 
 function clearAfterRound() {
-	// after the cards have been flipped, I want this function to then clear the cards being displayed before the next round
+    // after the cards have been flipped, I want this function to then clear the cards being displayed before the next round
 	inRound = false;
 	computerCard.innerHTML = "";
 	playerCard.innerHTML = "";
 	displayText.innerText = "";
-
+    
 	cardCount();
 }
 
 function cardCount() {
-	computerDeckEl.innerText = compDeck.length;
+    computerDeckEl.innerText = compDeck.length;
 	playerDeckEl.innerText = playerDeck.length; //keep track and update the amount of cards in the deck as the game progresses
 }
 
 function roundWinner(playerCurrentCard, computerCurrentCard) {  // I created this function to use the cardValue object above to compare the values of the cards drawn in a round and check if the player has a higher value
-    return cardValue[playerCurrentCard.value] > cardValue[computerCurrentCard.value]
-}
+    return cardValue[playerCurrentCard.value] > cardValue[computerCurrentCard.value];
+    
+};
+
 
 function gameOver(deck){
     return deck.length === 0
@@ -99,14 +104,56 @@ function gameOver(deck){
 //------ Event Listeners --------//
 
 playButton.addEventListener("click", () => {
-	startGame();
+    startGame();
 });
 
 drawButton.addEventListener("click", () => {
-	// With this event listener I want to use my draw card button to toggle between the clearAfterRound function and flipCards function
+    // With this event listener I want to use my draw card button to toggle between the clearAfterRound function and flipCards function
 	if (inRound === true) {
-		clearAfterRound();
+        clearAfterRound();
 	} else {
-		flipCards();
+        flipCards();
 	}
 });
+
+// ---------GraveYard Code-------//
+
+
+// let playerSum;
+// let computerSum;
+
+// if (playerCurrentCard.value === computerCurrentCard.value){
+    //     declareWar()
+    // };
+
+
+    // function declareWar(){
+        
+        
+    //     const playerWarCards = [
+    //         playerDeck.shift(),
+    //         playerDeck.shift(),
+    //         playerDeck.shift()
+    //     ];
+        
+    //     const computerWarCards = [
+    //         compDeck.shift(),
+    //         compDeck.shift(),
+    //         compDeck.shift()
+    //     ];
+        
+    //     playerSum = playerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
+        
+    //     computerSum = computerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
+    //     if (playerSum > computerSum){
+    //         displayText.innerText = 'War Won!'
+    //         for (cards of playerWarCards && computerWarCards){
+    //             playerDeck.push(cards)
+    //         }
+    //     } else {
+    //         displayText.innerText = 'War Lost!'
+    //         for (cards of playerWarCards && computerWarCards){
+    //             compDeck.push(cards)
+    //         }
+    //     };
+    // };

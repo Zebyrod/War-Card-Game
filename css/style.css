@@ -3,7 +3,7 @@
 }
 body {
     display: flex;
-    background-color: black;
+    background-color:grey;
     color: whitesmoke;
     flex-direction: column;
     font-family: 'Times New Roman', Times, serif;
@@ -21,17 +21,18 @@ body {
 }
 
  section {
-    background-color: black;
+    background-color:grey;
    
  } 
 
 main {
     display: grid;
     margin: 0;
-    background-color: rgba(180, 117, 39, 0.514);
-    grid-column: span 2;
+    background-color: rgb(109, 73, 27);
+    grid-column: span 3;
     max-height: 400px;
     max-width: 60%;
+
 }
 
 button {
@@ -47,10 +48,11 @@ button {
     display: grid;
     margin: 0;
     grid-template-columns: repeat(2, 4rem); /* Saw on GeeksforGeeks website you can use repeat() to create multiple colums of the same size for a grid layout*/
-    grid-template-rows: 6rem 2rem 6rem;
+    grid-template-rows: 7rem 3rem 7rem;
     gap: .5rem;
     justify-content: center;
     padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 
