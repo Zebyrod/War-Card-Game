@@ -47,7 +47,7 @@ button {
 #game-table {
     display: grid;
     margin: 0;
-    grid-template-columns: repeat(2, 4rem); /* Saw on GeeksforGeeks website you can use repeat() to create multiple colums of the same size for a grid layout*/
+    grid-template-columns: repeat(2, 4rem); 
     grid-template-rows: 7rem 3rem 7rem;
     gap: .5rem;
     justify-content: center;
@@ -108,7 +108,7 @@ button {
 
 .card::after, .card::before{
     position: absolute;
-    content: attr(data-value);  /*This will place the value of the cards within the divs and place them in the format of a card using the before and after styling  Looked this up on google and my AI search tool generated css using data-value */
+    content: attr(data-value);  
     font-size: 1rem;
 }
 

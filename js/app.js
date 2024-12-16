@@ -122,10 +122,10 @@ function declareWar(){
 
     computerSum = computerWarCards.reduce((acc, cardValue) => acc + cardValue, 0);
     if (playerSum > computerSum){
-        displayText.innerText = 'Won War!'
+        displayText.innerText = 'Won Battle!'
         playerDeck.push(...computerWarCards, ...playerWarCards)
     } else {
-        displayText.innerText = 'Lost War!'
+        displayText.innerText = 'Lost Battle!'
         compDeck.push(...computerWarCards, ...playerWarCards)
     } 
     computerWarCards.length = 0;
